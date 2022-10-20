@@ -1,3 +1,4 @@
+#逻辑门类
 class logicgate:
 
     def _init_(self,n):
@@ -11,7 +12,7 @@ class logicgate:
     def getoutput(self):
         self.output=self.logicjisuan
         return self.output
-    
+#多头逻辑门类
 class  mgate(logicgate):
     def _init_(self,n):
         super()._init_(n)
@@ -19,15 +20,25 @@ class  mgate(logicgate):
         self.Bpin=None
 
     def getpinA(self):
-        self.Apin=int(input("gate"+self.getlabel()+"A="))
+        self.Apin=int(input("mgate"+self.getlabel()+"A="))
         return self.Apin
     def getpinB(self):
-        self.Bpin=int(input("gate"+self.getlabel()+"B="))
+        self.Bpin=int(input("mgate"+self.getlabel()+"B="))
         return self.Bpin
 
+#单头逻辑门类
+class  sgate(logicgate):
+    def _init_(self,n):
+        super()._init_(n)
+        self.Apin=None
+
+    def getpinA(self):
+        self.Apin=int(input("sgate"+self.getlabel()+"="))
+        return self.Apin
 
 
 
+#连接器
 class connector :
     def _init_(self,fromgate,togate):
     self.fromgate=fromgate
