@@ -1,0 +1,47 @@
+class logicgate:
+
+    def _init_(self,n):
+        self.label=n
+        self.output=None
+        
+    
+    def getlabel(self):
+        return self.label
+    
+    def getoutput(self):
+        self.output=self.logicjisuan
+        return self.output
+    
+class  mgate(logicgate):
+    def _init_(self,n):
+        super()._init_(n)
+        self.Apin=None
+        self.Bpin=None
+
+    def getpinA(self):
+        self.Apin=int(input("gate"+self.getlabel()+"A="))
+        return self.Apin
+    def getpinB(self):
+        self.Bpin=int(input("gate"+self.getlabel()+"B="))
+        return self.Bpin
+
+
+
+
+class connector :
+    def _init_(self,fromgate,togate):
+    self.fromgate=fromgate
+    self.togate=togate
+    
+    def getfrom(self):
+    self._init_
+    
+    def getto(self):
+    if self.togate.getpinA==None:
+        self.togate.getpinA
+    else:
+        if self.togate.getpinB==None:
+        self.togate.getpinB
+    else:
+        raise RuntimeError("ERROR")
+    
