@@ -70,13 +70,25 @@ class Orgate(Mgate):
         super().__init__(n)
 
     def logicaljisuan(self):
-        a = self.getApin()
-        b = self.getBpin()
+        a = self.getpinA()
+        b = self.getpinB()
         if a == 0 and b == 0:
             return 0
         else:
             return 1
 
-
+# 连接器
+class Connector:
+    def __init__(self, fromgate, togate):
+        if togate.Apin == None:
+            togate.Apin = fromgate.getoutput()
+        else:
+            if togate.Bpin == None:
+                togate.Bpin = fromgate.getoutput()
 g1 = Andgate("G1")
-a=g1.getoutput()
+g2 = Orgate("G2")
+g3 = Andgate("G3")
+c1=Connector(g1,g3)
+c2=Connector(g2,g3)
+a=g3.getoutput()
+print(a)
