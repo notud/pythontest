@@ -77,6 +77,19 @@ class Orgate(Mgate):
         else:
             return 1
 
+
+# 非门
+class Notgate(Sgate):
+    def __init__(self, n):
+        super().__init__(n)
+
+    def logicaljisuan(self):
+        a = self.getpinA()
+        if a == 1:
+            return 0
+        else:
+            return 1
+
 # 连接器
 class Connector:
     def __init__(self, fromgate, togate):
@@ -85,10 +98,16 @@ class Connector:
         else:
             if togate.Bpin == None:
                 togate.Bpin = fromgate.getoutput()
+
+#主函数
 g1 = Andgate("G1")
 g2 = Orgate("G2")
 g3 = Andgate("G3")
+g4 = Orgate("G4")
+g5 = Notgate("G5")
 c1=Connector(g1,g3)
 c2=Connector(g2,g3)
-a=g3.getoutput()
+Connector(g3,g4)
+Connector(g5,g4)
+a=g4.getoutput()
 print(a)
