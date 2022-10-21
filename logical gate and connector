@@ -10,7 +10,7 @@ class logicgate:
         return self.label
     
     def getoutput(self):
-        self.output=self.logicjisuan
+        self.output=self.logicjisuan()
         return self.output
 #多头逻辑门类
 class  mgate(logicgate):
@@ -20,10 +20,12 @@ class  mgate(logicgate):
         self.Bpin=None
 
     def getpinA(self):
-        self.Apin=int(input("mgate"+self.getlabel()+"A="))
+        if self.Apin==None
+            self.Apin=int(input("mgate"+self.getlabel()+"A="))
         return self.Apin
     def getpinB(self):
-        self.Bpin=int(input("mgate"+self.getlabel()+"B="))
+        if self.Bpin==None
+            self.Bpin=int(input("mgate"+self.getlabel()+"B="))
         return self.Bpin
 
 #单头逻辑门类
@@ -33,7 +35,8 @@ class  sgate(logicgate):
         self.Apin=None
 
     def getpinA(self):
-        self.Apin=int(input("sgate"+self.getlabel()+"="))
+        if self.Apin==None
+            self.Apin=int(input("sgate"+self.getlabel()+"="))
         return self.Apin
 
 
@@ -45,14 +48,32 @@ class connector :
     self.togate=togate
     
     def getfrom(self):
-    self._init_
+        return self.fromgate.output
     
     def getto(self):
-    if self.togate.getpinA==None:
-        self.togate.getpinA
-    else:
-        if self.togate.getpinB==None:
-        self.togate.getpinB
-    else:
-        raise RuntimeError("ERROR")
+        if self.togate.getpinA==None:
+            self.togate.getpinA()
+        else:
+            if self.togate.getpinB==None:
+        self.togate.getpinB()
+        else:
+            raise RuntimeError("ERROR")
     
+class andgate(mgate):
+    def _init_s(self,n):
+        super()._init_(n)
+        self.Apin=None
+        self.Bpin=None
+    
+    def logicaljisuan(self)
+        if Apin==1
+            if Bpin==1
+                return 1
+        else return 0
+
+g1=andgate("and1")
+g2=andgate("and2")
+g3=andgate("and3")
+connector(g1,g2)
+connector(g3,g2)
+
